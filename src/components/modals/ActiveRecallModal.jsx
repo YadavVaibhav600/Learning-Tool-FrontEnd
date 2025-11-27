@@ -72,7 +72,7 @@ const toggleQuestionType = (typeName) => {
       }}
     >
       {/* Modal Content */}
-      <div
+      <div className='test'
         style={{
           background: "rgba(30, 34, 62, 0.8)",
           border: "1px solid #00D9FF",

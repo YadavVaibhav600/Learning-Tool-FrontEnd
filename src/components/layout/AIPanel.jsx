@@ -25,7 +25,7 @@ const AIPanel = ({ isVisible, onClose }) => {
   return (
     <>
       {/* AI Panel */}
-      <div style={{
+      <div className='test' style={{
         position: 'fixed',
         right: 0,
         top: 0,

@@ -1,10 +1,13 @@
-import React , {useState} from 'react'
-import Sidebar from './components/layout/Sidebar'
-import AIPanel from './components/layout/AIPanel'
+import React , {useState} from 'react';
+import Sidebar from './components/layout/Sidebar';
+import AIPanel from './components/layout/AIPanel';
 import EditorToolBar from './components/notes/EditorToolBar';
 import EditorTab from './components/layout/EditorTabs';
 import TextContentArea from './components/notes/ContentArea';
 import StatsBar from './components/dashboard/StatsBar';
+import './index.css';
+
+
 function App() {
 
     const [showAIPanel, setShowAIPanel] = useState(true);
