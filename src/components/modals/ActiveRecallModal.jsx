@@ -1,11 +1,32 @@
 import React, { useState } from "react";
+import HandleTestingPanel from "./TestingSessionContainer";
+import ActiveRecallTestingPanel from "./ActiveRecallTestingPanel";
 
-const ActiveRecallModal = ({ isOpen, onClose }) => {
+const ActiveRecallModal = ({ isOpen, onClose , onStartSession }) => {
   // State for selected mode (single selection)
   const [selectedMode, setSelectedMode] = useState("Smart Focus");
 
   // State for selected question types (multi-selection)
   const [selectedTypes, setSelectedTypes] = useState([]);
+
+
+
+
+
+  const activateStartSession = () => {
+
+    onStartSession(selectedMode, selectedTypes);
+  
+
+    // now it has to send data to our mid layer or testing session container 
+    
+
+    
+
+   
+
+  }
+
 
   // Function to toggle question type selection
 //   const toggleQuestionType = (typeName) => {
@@ -259,7 +280,7 @@ const toggleQuestionType = (typeName) => {
             marginTop: "2rem",
           }}
         >
-          <button
+          <button onClick={activateStartSession}
             style={{
               background: "linear-gradient(135deg, #FFB830, #F43F5E)",
               border: "none",

@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import '../../index.css';
 import ActiveRecallModal from "../modals/ActiveRecallModal";
+import HandleTestingPanel from "../modals/TestingSessionContainer";
 
 const AIPanel = ({ isVisible, onClose }) => {
   // State for modal
   const [isRecallModalOpen, setIsRecallModalOpen] = useState(false);
+  const[isTestingSessionOpen ,setIsTestingSessionOpen] = useState(false);
+  const [sessionConfig, setSessionConfig] = useState(null);
+
 
   // Function to open modal (only for Active Recall card)
   const openModal = (feature) => {
@@ -12,6 +16,14 @@ const AIPanel = ({ isVisible, onClose }) => {
       setIsRecallModalOpen(true);
     }
   };
+
+  // function to handle when user clicks on Start Session 
+  const handleStartSession = (mode , questionType) => {
+    setSessionConfig({mode , questionType});
+    setIsRecallModalOpen(false);
+    setIsTestingSessionOpen(true);
+  }
+
 
   const aiFeatures = [
     { id: 1, icon: '🧠', name: 'Active Recall', desc: 'Test your memory with AI-generated questions' },
@@ -140,8 +152,19 @@ const AIPanel = ({ isVisible, onClose }) => {
         <ActiveRecallModal 
           isOpen={isRecallModalOpen} 
           onClose={() => setIsRecallModalOpen(false)}
+          onStartSession={handleStartSession} 
         />
       )}
+
+{/* Testing Session Panel */}
+      {isTestingSessionOpen && (
+        <HandleTestingPanel 
+          isOpen={isTestingSessionOpen}
+          sessionConfig={sessionConfig}
+          onClose={() => setIsTestingSessionOpen(false)}
+        />
+      )}
+
     </>
   );
 };

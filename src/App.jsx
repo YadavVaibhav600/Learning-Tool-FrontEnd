@@ -8,6 +8,7 @@ import StatsBar from './components/dashboard/StatsBar';
 import './index.css';
 
 
+
 function App() {
 
     const [showAIPanel, setShowAIPanel] = useState(true);
